@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="stylesheet" href="ajax-style.css">
+        <script src="ajax.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>Code Topic: AJAX Consuming JSON Web Service</h1>
+        </header>
+        <div class="topic-info">AJAX is just 6 lines of code. Whether
+             you are getting a basic text file from your server or 
+             getting the location of the International Space Station 
+             from NASA. It is pretty easy..</div>
+        <div class="explanation">It is important to note that AJAX 
+            calls cannot be made locally. They must be sent to a web 
+            server.</div>
+        <div class="explanation">When attempting to make a server 
+            call when none are available, the following error will
+            be thrown in the dev tools console:</div>
+        <div class="explanation red-text">Cross origin requests are 
+            only supported for protocol schemes: http, data, chrome, 
+            chrome-extension, https.</div>
+        <div class="explanation">The six lines of code (excluding 
+            lines for brackets) mentioned above are as follows:
+        </div>
+        <pre>
+                var loadDoc = function() {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                      if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("demo").innerHTML = this.responseText;
+                      }
+                    };
+                    xhttp.open("GET", "ajax_info.txt", true);
+                    xhttp.send();
+                }
+        </pre>
+        <button onclick="loadDoc()">Load Doc</button>
+        <div class="explanation">However, there is more than one way 
+            of making an AJAX call. It can also be done with JQuery:
+        </div>
+        <pre>
+                var loadDocJQuery = function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "ajax_info.txt",
+                        data: {},
+                        success: function (data) { console.log("Returned data:"); console.log(data); },
+                        dataType: "text"
+                      });
+                }
+        </pre>
+        <button onclick="loadDocJQuery()">Load Doc with JQuery</button>
+    </body>
+</html>

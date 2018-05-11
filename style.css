@@ -44,3 +44,7 @@ header {
     font-weight: bold;
     margin-top: 15px;
 }
+
+pre {
+    background-color: lightgrey;
+}
