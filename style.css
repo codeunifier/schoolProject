@@ -1,0 +1,46 @@
+/*
+Color theme:
+#E27D60 - reddish/rust
+#085DCB - blue
+#E8A87C - orange/tan
+#C28D9E - purple-ish
+#41B3A3 - dark turqoise
+*/
+
+body {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    line-height: 90px;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #E27D60;
+}
+
+#portfolioTable {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+#portfolioTable td {
+    border: black solid 1px;
+}
+
+#portfolioTable td a {
+    text-decoration: none;
+    color: #E27D60;
+}
+
+#portfolioTable td a:hover {
+    color: #085DCB;
+}
+
+.topic-info {
+    font-weight: bold;
+    margin-top: 15px;
+}

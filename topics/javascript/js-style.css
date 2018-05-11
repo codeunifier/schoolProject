@@ -1,0 +1,20 @@
+.example-title {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.answer {
+    display: inline-block;
+}
+
+.example {
+    margin-top: 50px;
+}
+
+body {
+    margin-bottom: 50px;
+}
+
+pre {
+    background-color: lightgrey;
+}
