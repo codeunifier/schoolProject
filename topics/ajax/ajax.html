@@ -23,6 +23,11 @@
         <div class="explanation red-text">Cross origin requests are 
             only supported for protocol schemes: http, data, chrome, 
             chrome-extension, https.</div>
+        <div class="explanation">Below are examples of making AJAX
+            calls using various methods. Open the developer tools in
+            your browser and navigate to the "Network" tab to see the
+            ajax calls being made.
+        </div>
         <div class="explanation">The six lines of code (excluding 
             lines for brackets) mentioned above are as follows:
         </div>
@@ -30,29 +35,54 @@
                 var loadDoc = function() {
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function() {
-                      if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("demo").innerHTML = this.responseText;
-                      }
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("demoOne").innerHTML = this.responseText;
+                    }
                     };
                     xhttp.open("GET", "ajax_info.txt", true);
                     xhttp.send();
                 }
         </pre>
         <button onclick="loadDoc()">Load Doc</button>
+        <div id="demoOne" class="demo">
+
+        </div>
         <div class="explanation">However, there is more than one way 
             of making an AJAX call. It can also be done with JQuery:
         </div>
         <pre>
                 var loadDocJQuery = function () {
                     $.ajax({
-                        type: "POST",
+                        type: "GET",
                         url: "ajax_info.txt",
                         data: {},
-                        success: function (data) { console.log("Returned data:"); console.log(data); },
+                        success: function (data) { $("#demoTwo").html(data); },
                         dataType: "text"
-                      });
+                    });
                 }
         </pre>
         <button onclick="loadDocJQuery()">Load Doc with JQuery</button>
+        <div id="demoTwo" class="demo">
+
+        </div>
+        <div class="explanation">Using these methods, we can also take the contents of other
+            HTML files and inject the code. Below is the HTML code saved in the file "code.html"
+            that will be accessed through an ajax call.
+        </div>
+        <pre>
+            <xmp>
+                <!DOCTYPE html>
+                <html>
+                    <h1>Hello world!</h1>
+                    <div>This is text insdie a div</div>
+                    <button>I don't do anything!</button>
+                    <div style="background-color: lightblue; width: 100px; height: 100px;">I'm blue</div>
+                </html>
+            </xmp>
+        </pre>
+        <button onclick="loadHTML()">Load HTML</button>
+        <div id="demoThree" class="demo">
+
+        </div>
     </body>
 </html>
