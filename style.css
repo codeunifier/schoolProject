@@ -48,3 +48,11 @@ header {
 pre {
     background-color: lightgrey;
 }
+
+.explanation {
+    margin-top: 20px;
+}
+
+.red-text {
+    color: red;
+}
