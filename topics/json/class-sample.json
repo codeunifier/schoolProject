@@ -1,0 +1,215 @@
+{
+    "ClassName": "Barbarian",
+    "HitDice": 12,
+    "ClassFeatures": [
+        {
+            "FeatureName": "Rage",
+            "Level": 1,
+            "Description": "In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action. While raging, you gain the following benefits if you are not wearing heavy armor: You have advantage on Strength checks and Strength saving throws. When you make a melee weapon attack using Strength, you gain a bonus to the damage roll that increases as you gain levels as a barbarian. You have resistance to bludgeoning, piercing, and slashing damage."
+        },
+        {
+            "FeatureName": "Unarmored Defense",
+            "Level": 1,
+            "Description": "Without armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier."
+        },
+        {
+            "FeatureName": "Reckless Attack",
+            "Level": 2,
+            "Description": "Attacking recklessly gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn."
+        },
+        {
+            "FeatureName": "Danger Sense",
+            "Level": 2,
+            "Description": "You have advantage on Dexterity saving throws against effects that you can see, such as traps and spells. To gain this benefit, you can not be blinded, deafened, or incapacitated."
+        },
+        {
+            "FeatureName": "Ability Score Improvement / Feat",
+            "Level": 4,
+            "Description": "You can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. Instead of this, you may choose to select one feat."
+        },
+        {
+            "FeatureName": "Extra Attack",
+            "Level": 5,
+            "Description": "You can attack twice, instead of once, whenever you take the Attack action on your turn."
+        },
+        {
+            "FeatureName": "Fast Movement",
+            "Level": 5,
+            "Description": "Your speed increases by 10 feet while you are not wearing heavy armor."
+        },
+        {
+            "FeatureName": "Path Feature",
+            "Level": 6,
+            "Description": "Choose an archetype to gain this feature."
+        },
+        {
+            "FeatureName": "Feral Instinct",
+            "Level": 7,
+            "Description": "Your instincts are so honed that you have advantage on initiative rolls. Additionally, if you are surprised at the beginning of combat and are not incapacitated, you can act normally on your first turn, but only if you enter your rage before doing anything else on that turn."
+        },
+        {
+            "FeatureName": "Ability Score Improvement / Feat",
+            "Level": 8,
+            "Description": "You can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. Instead of this, you may choose to select one feat."
+        },
+        {
+            "FeatureName": "Brutal Critical (1 die)",
+            "Level": 9,
+            "Description": "You can roll one additional weapon damage die when determining the extra damage for a critical hit with a melee attack. This increases to two additional dice at 13th level and three additional dice at 17th level."
+        },
+        {
+            "FeatureName": "Path Feature",
+            "Level": 10,
+            "Description": "Choose an archetype to gain this feature."
+        },
+        {
+            "FeatureName": "Relentless Rage",
+            "Level": 11,
+            "Description": "Your rage can keep you fighting despite grievous wounds. If you drop to 0 hit points while you are raging and do not die outright, you can make a DC 10 Constitution saving throw. If you succeed, you drop to 1 hit point instead. Each time you use this feature after the first, the DC increases by 5. When you finish a short or long rest, the DC resets to 10."
+        },
+        {
+            "FeatureName": "Ability Score Improvement / Feat",
+            "Level": 12,
+            "Description": "You can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. Instead of this, you may choose to select one feat."
+        },
+        {
+            "FeatureName": "Brutal Critical (2 dice)",
+            "Level": 13,
+            "Description": "You can roll one additional weapon damage die when determining the extra damage for a critical hit with a melee attack. This increases to two additional dice at 13th level and three additional dice at 17th level."
+        },
+        {
+            "FeatureName": "Path Feature",
+            "Level": 14,
+            "Description": "Choose an archetype to gain this feature."
+        },
+        {
+            "FeatureName": "Persistent Rage",
+            "Level": 15,
+            "Description": "Your rage is so fierce that it ends early only if you fall unconscious or if you choose to end it."
+        },
+        {
+            "FeatureName": "Ability Score Improvement / Feat",
+            "Level": 16,
+            "Description": "You can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. Instead of this, you may choose to select one feat."
+        },
+        {
+            "FeatureName": "Brutal Critical (3 dice)",
+            "Level": 17,
+            "Description": "You can roll one additional weapon damage die when determining the extra damage for a critical hit with a melee attack. This increases to two additional dice at 13th level and three additional dice at 17th level."
+        },
+        {
+            "FeatureName": "Indomitable Might",
+            "Level": 18,
+            "Description": "If your total for a Strength check is less than your Strength score, you can use that score in place of the total."
+        },
+        {
+            "FeatureName": "Ability Score Improvement / Feat",
+            "Level": 19,
+            "Description": "You can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. Instead of this, you may choose to select one feat."
+        },
+        {
+            "FeatureName": "Primal Champion",
+            "Level": 20,
+            "Description": "You embody the power of the wilds. Your Strength and Constitution scores increase by 4. Your maximum for those scores is now 24."
+        }
+    ],
+    "ArchetypeFeatures": [
+        {
+            "ArchetypeName": "Berserker",
+            "Features": [
+                {
+                    "Level": 3,
+                    "Name": "Frenzy",
+                    "Description": "You can go into a frenzy when you rage. If you do so, for the duration of your rage you can make a single melee weapon attack as a bonus action on each of your turns after this one. When your rage ends, you suffer one level of exhaustion."
+                },
+                {
+                    "Level": 6,
+                    "Name": "Mindless Rage",
+                    "Description": "You can't be charmed or frightened while raging. If you are charmed or frightened when you enter your rage, the effect is suspended for the duration of the rage."
+                },
+                {
+                    "Level": 10,
+                    "Name": "Intimidating Presence",
+                    "Description": "You can use your action to frighten someone with your menacing presence. When you do so, choose one creature that you can see within 30 feet of you. If the creature can see or hear you, it must succeed on a Wisdom saving throw (DC equal to 8 + your proficiency bonus + your Charisma modifier) or be frightened of you until the end of your next turn. On subsequent turns, you can use your action to extend the duration of this effect on the frightened creature until the end of your next turn. This effect ends if the creature ends its turn out of line of sight or more than 60 feet away from you. If the creature succeeds on its saving throw, you can't use this feature on that creature again for 24 hours."
+                },
+                {
+                    "Level": 14,
+                    "Name": "Retaliation",
+                    "Description": "When you take damage from a creature that is within 5 feet of you. you can use your reaction to make a melee weapon attack against that creature."
+                }
+            ],
+            "Description": "For some barbarians, rage is a means to an end - that end being violence. The Path of the Berserker is a path of untrammeled fury, slick with blood. As you enter the berserker's rage, you thrill in the chaos of battle, heedless of your own health or well-being."
+        },
+        {
+            "ArchetypeName": "Totem Warrior",
+            "Features": [
+                {
+                    "Level": 3,
+                    "Name": "Spirit Seeker",
+                    "Description": "Yours is a path that seeks attunement with the natural world, giving you a kinship with beasts. When you adopt this path, you gain the ability to cast the beast sense and speak with animals spells, but only as rituals."
+                },
+                {
+                    "Level": 3,
+                    "Name": "Totem Spirit",
+                    "Description": "When you adopt this path, you choose a totem spirit and gain its feature. You must make or acquire a physical totem object - an amulet or similar adornment - that incorporates fur or feathers, claws, teeth, or bones of the totem animal. At your option, you also gain minor physical attributes that are reminiscent of your totem spirit. Your totem animal might be an animal related to those listed here but more appropriate to your homeland. For example, you could choose a hawk or vulture in place of an eagle. Bear - While raging, you have resistance to all damage except psychic damage. The spirit of the bear makes you tough enough to stand up to any punishment. Eagle - While you're raging and aren’t wearing heavy armor, other creatures have disadvantage on opportunity attack rolls against you, and you can use the Dash action as a bonus action on your turn. The spirit of the eagle makes you into a predator who can weave through the fray with ease. Wolf - While you're raging, your friends have advantage on melee attack rolls against any creature within 5 feet of you that is hostile to you. The spirit of the wolf makes you a leader of hunters."
+                },
+                {
+                    "Level": 6,
+                    "Name": "Aspect of the Beast",
+                    "Description": "You gain a magical benefit based on the totem animal of your choice. You can choose the same animal you selected at 3rd level or a different one. Bear - You gain the might of a bear. Your carrying capacity (including maximum load and maximum lift) is doubled, and you have advantage on Strength checks made to push, pull, lift, or break objects. Eagle - You gain the eyesight of an eagle. You can see up to 1 mile away with no difficulty, able to discern even fine details as though looking at something no more than 100 feet away from you. Additionally, dim light doesn't impose disadvantage on your Wisdom (Perception) checks. Wolf - You gain the hunting sensibilities of a wolf. You can track other creatures while traveling at a fast pace, and you can move stealthily while traveling at a normal pace."
+                },
+                {
+                    "Level": 10,
+                    "Name": "Spirit Walker",
+                    "Description": "You can cast the commune with nature spell, but only as a ritual. When you do so, a spiritual version of one of the animals you chose for Totem Spirit or Aspect of the Beast appears to you to convey the information you seek."
+                },
+                {
+                    "Level": 14,
+                    "Name": "Totemic Attunement",
+                    "Description": "You gain a magical benefit based on a totem animal of your choice. You can choose the same animal you selected previously or a different one. Bear -  While you're raging, any creature within 5 feet of you that's hostile to you has disadvantage on attack rolls against targets other than you or another character with this feature. An enemy is immune to this effect if it can't see or hear you or if it can't be frightened. Eagle - While raging, you have a flying speed equal to your current walking speed. This benefit works only in short bursts; you fall if you end your turn in the air and nothing else is holding you aloft. Wolf - While you're raging, you can use a bonus action on your turn to knock a Large or smaller creature prone when you hit it with melee weapon attack."
+                }
+            ],
+            "Description": "The Path of the Totem Warrior is a spiritual journey, as the barbarian accepts a spirit animal as guide, protector, and inspiration. In battle, your totem spirit fills you with supernatural might, adding magical fuel to your barbarian rage."
+        }
+    ],
+    "ClassTableSize": {
+        "X": 360,
+        "Y": 530
+    },
+    "Proficiencies": [
+        {
+            "Type": "Armor",
+            "Proficiency": "Light Armor"
+        },
+        {
+            "Type": "Armor",
+            "Proficiency": "Medium Armor"
+        },
+        {
+            "Type": "Armor",
+            "Proficiency": "Shields"
+        },
+        {
+            "Type": "Weapon",
+            "Proficiency": "Simple"
+        },
+        {
+            "Type": "Weapon",
+            "Proficiency": "Martial"
+        },
+        {
+            "Type": "Saving Throw",
+            "Proficiency": "Str"
+        },
+        {
+            "Type": "Saving Throw",
+            "Proficiency": "Con"
+        }
+    ],
+    "Skills": {
+        "SelectNumber": 2,
+        "SelectionList": [
+            "Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"
+        ]
+    }
+}
