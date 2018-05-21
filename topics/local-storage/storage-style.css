@@ -1,0 +1,20 @@
+#shoppingCart {
+    margin: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.cart-item input {
+    margin-right: 5px;
+    width: 30px;
+}
+
+#cartButtons {
+    text-align: center;
+}
+
+#demo {
+    border: 1px solid black;
+    margin: 15px;
+    height: 300px;
+}
