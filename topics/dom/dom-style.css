@@ -1,0 +1,19 @@
+.demo-container > * {
+    display: inline-block;
+    width: 45%;
+    height: 200px;
+    padding: 5px;
+}
+
+.demo-container .demo {
+    float: right;
+}
+
+.demo {
+    overflow-y: auto;
+}
+
+#demo_2 img {
+    width: auto;
+    height: 40px;
+}
