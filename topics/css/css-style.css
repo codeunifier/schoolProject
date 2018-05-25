@@ -1,0 +1,135 @@
+.demo-container {
+    margin-top: 15px;
+}
+
+.demo-container > * {
+    display: inline-block;
+    width: 45%;
+    height: 200px;
+    padding: 5px;
+}
+
+.demo-container .demo {
+    float: right;
+}
+
+.demo {
+    overflow-y: auto;
+}
+
+#demo_1_button:hover {
+    color: red;
+}
+
+#demo_1_link:visited {
+    color: orange;
+}
+
+#demo_1_input:focus::-webkit-input-placeholder {
+    color: green;
+    text-align: center;
+}
+
+#demo_2 {
+    position: relative;
+}
+
+#demo_2 > * {
+    display: inline-block;
+}
+
+#popover_container {
+    display: none;
+}
+
+#popover_container > * {
+    display: inline-block;
+}
+
+#popover_arrow {
+    width: 0;
+    height: 0;
+	border-top: 5px solid transparent;
+	border-right: 10px solid black;
+    border-bottom: 5px solid transparent;
+    padding: 0;
+    margin: 0;
+}
+
+#popover_text {
+    border: solid 1px black;
+    padding: 0;
+}
+
+#hoverable:hover .popover {
+    display: inline-block;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.gone {
+    display: none !important;
+}
+
+#flowey {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+}
+
+#flowey img {
+    width: auto;
+    height: 150px;
+}
+
+#toggleColor {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+
+#demo_3 > * {
+    display: inline-block;
+    margin: 5px;
+}
+
+#toggleFont {
+    font-family: "courier";
+}
+
+.scroll-y {
+    overflow-y: auto;
+}
+
+#demo_4 table {
+    border-collapse: collapse;
+}
+
+#demo_4 table th,td {
+    text-align: center;
+    border: 1px solid black;
+}
+
+#demo_4 table tr:nth-child(2n) {
+    background-color: lightgray;
+}
+
+input:enabled {
+    opacity: 1;
+}
+
+input:disabled {
+    opacity: .2;
+}
+
+input[type="number"]:in-range {
+    border-color: green;
+}
+
+input[type="number"] {
+    border-color: red;
+}
+
