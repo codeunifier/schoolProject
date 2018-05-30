@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="stylesheet" href="events-style.css">
+        <script type="text/javascript" src="events-script.js"></script>
+        <script type="text/javascript">
+            window.onload = function () {
+                console.log("Hello there!");
+                addKeydownListener();
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1>Code Topic: JavaScript Events</h1>
+        </header>
+        <div id="circle"></div>
+        <div class="topic-info">Especially for Mobile Devices (onTouchBegin) 
+            and Animation and Transition Events. There are many many events - 
+            key press, mouse, touch, document loaded... You need to experiment 
+            with more than just mouse-over.</div>
+        <div class="explanation">There are indeed many events that can be tracked
+            with JavaScript. It can be extremely useful to take advantage of some
+            of these events when creating a website or an application. When 
+            working with Google Maps, for example, there are dozens of mouse 
+            events that are fired while over the map. Everything from every pixel
+            moved to when the mouse enters or leaves the space over the map can 
+            have some kind of response in the code.
+        </div>
+        <div class="explanation">A simple example is responding to a click event
+            being fired. The button below toggles a listener for click events on
+            with the mouse. Click the button then click around the page to see 
+            what it does!
+        </div>
+        <br>
+        <button id="btnClickEvent" onclick="toggleClickEventListener()">Toggle Click Listener</button>
+        <br>
+        <div class="explanation">The JavaScript code to do this is shown below.</div>
+        <pre>
+    function handleClickEvent(e) {
+        var x = e.clientX;
+        var y = e.clientY; 
+    
+        x -= 13; //half the size of the circle
+        y -= 13; //half the size of the circle
+    
+        document.getElementById("circle").style.top = y + "px";
+        document.getElementById("circle").style.left = x + "px";
+    }
+    
+    function toggleClickEventListener() {
+        circleOn = !circleOn;
+    
+        if (circleOn) {
+            document.getElementById("circle").style.display = "block";
+            document.addEventListener("click", handleClickEvent);
+        } else {
+            document.getElementById("circle").style.display = "none";
+            document.removeEventListener("click", handleClickEvent);
+        }
+    }
+        </pre>
+        <div class="explanation">Click events are more often handled using the 
+            "onclick" attribute, which can be applied to practically any element,
+            but that only applies to when a single element is clicked. The event
+            listener through JavaScript offers much more flexibility, and the 
+            event response returns data that could be relevant to the response 
+            you want, like mouse position. An onclick attribute event will only
+            pass into the function what parameters are specified in the HTML.
+        </div>
+        <div class="explanation">There's a 
+            <a href="https://www.w3schools.com/jsref/dom_obj_event.asp">very 
+            extensive list</a> of other events that can be listened to through 
+            JavaScript. As mentioned before, Google Maps has its
+            own slew of events that it listens to. They offer a really awesome 
+            little tool to demonstrate how and when these events are fired that 
+            can be found
+            <a href="https://developers.google.com/maps/documentation/javascript/events">
+                here</a>. Their tool actually covers mouse events really 
+            well and displays when they are fired, so instead of  reinventing 
+            the wheel, I'm going to leave events like mousemove, mouseout, 
+            mouseover, dblclick, rightclick, and drag events to them and try to
+            cover a few more really useful events.
+        </div>
+        <div class="explanation">Probably one of the most commonly used (besides
+            onclick) events is the <b>onchange</b> event. This is fired whenever an 
+            element changes. That might sound vague, but it can be used just as
+            broadly as you might think. While in my code sample above I showed an
+            event listener on the "document" element as a whole, here I'll show
+            how it can be used on a specific element.
+        </div>
+        <br>
+        <div class="demo">
+            <div class="demo-left">
+                <input type="text" placeholder="Enter text then click away"
+                onchange="onInputChanged()">
+                <br>
+                <select onchange="onInputChanged()">
+                    <option>Gryffindor</option>
+                    <option>Ravenclaw</option>
+                    <option>Hufflepuff</option>
+                    <option>Slytherin</option>
+                </select>
+                <br>
+                <input onchange="onInputChanged()" type="checkbox">
+            </div>
+            <div class="demo-right">
+                <div id="changeBox">onchange</div>
+            </div>
+        </div>
+        <pre><xmp>
+    <input type="text" placeholder="Enter text then click away" onchange="onInputChanged()">
+    <select onchange="onInputChanged()">
+        <option>Gryffindor</option>
+        <option>Ravenclaw</option>
+        <option>Hufflepuff</option>
+        <option>Slytherin</option>
+    </select>
+    <input onchange="onInputChanged()" type="checkbox">
+
+    -- can also be done in JavaScript using the following template --
+
+    document.getElementById("elmId").addEventListener("change", eventHandler);
+        </xmp></pre>
+        <div class="explanation">One event that I use probably more often than 
+            necessary is the <b>onload</b> event. This can be applied to the 
+            "window" object in JavaScript to be executed when the web page loads.
+            If you open your dev tools and refresh the browser, you'll see a 
+            console I've added that will fire immediately when the page loads.
+            I typically use this right in my HTML file.
+        </div>
+        <pre><xmp>
+    <script type="text/javascript">
+        window.onload = function () {
+            console.log("Hello there!");
+        }
+    </script>
+        </xmp></pre>
+        <div class="explanation">One of my favorite event listeners is the
+            <b>keydown</b> event, which fires whenever a key is pressed. Notice 
+            that it tracks lowercase and capital letters as well as funciton keys.
+        </div>
+        <br>
+        <input id="keyDownDemoText" type="text" placeholder="Enter some text">
+        <span id="demoOutput"></span>
+        <br><br>
+        <input id="keyDownDemoPassword" type="password" placeholder="Password">
+        <span id="demoOutput2"></span>
+        <div class="explanation">And that right there is the essence of a keylogger.</div>
+        <footer></footer>
+    </body>
+</html>
