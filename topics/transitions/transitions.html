@@ -1,0 +1,145 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="stylesheet" href="trans-styles.css">
+    </head>
+    <body>
+        <header>
+            <h1>Code Topic: CSS Transitions</h1>
+        </header>
+        <div class="topic-info">Designing, Defining, and Triggering CSS3 Transitions without Custom Libraries</div>
+        <div class="explanation">Similar to <a href="/topics/js-ani/js-ani.html">Transitions with JavaScript</a>, the 
+            transitions demonstated here will be altering the CSS styles of elements on the DOM, but here we will 
+            only be using CSS to make these transitions.</div>
+        <div class="explanation">Using the same demonstration as before, we can observe a mouseover event by using 
+            the :hover attribute in our CSS. While it isn't possible to toggle classes with CSS alone, we can still 
+            modify CSS on events like this and add some transition animation to it.
+        </div>
+        <div class="explanation">In the previous demonstration, the circle tried fleeing the mouse by changing 
+            directions, but this time it got a bit smarter with avoiding the mouse.
+        </div>
+        <div id="demo1" class="demo">
+            <div id="circle" class="circle-demo"></div>
+        </div>
+        <div class="explanation">Below is the CSS added to make this transition possible. The transition will shrink 
+            the circle to 1px in size over 3 seconds, as long as the cursor stays over the circle.
+        </div>
+        <pre>
+    #circle:hover {
+        background-color: red;
+        width: 1px;
+        height: 1px;
+        transition: width 3s, height 3s;
+    }
+        </pre>
+        <div class="explanation">That's enough with circles. Let's leave them alone for a while.</div>
+        <div class="explanation">The next demonstration will show off some of the other properties 
+            of transitions. 
+        </div>
+        <div class="explanation"><b>transition-delay</b></div>
+        <div class="explanation">This is our square. He takes some time to get used to the mouse. But he'll warm up to it.</div>
+        <div id="demo2" class="demo">
+            <div class="square green"></div>
+        </div>
+        <pre>
+    .square:hover {
+        background-color: lightgreen;
+        transition: background-color 3s;
+        transition-delay: 2s;
+    }
+        </pre>
+        <div class="explanation"><b>transition-duration</b></div>
+        <div class="explanation">Our square found a friend! The purple square doesn't like the mouse at all, but if the 
+            green square warms up to the mouse, then he will too. This transition is taking advantage of the CSS "~" 
+            which selects a sibling element, but mostly to demonstrate the two ways to specify the transition duration:
+            inline (see .green and .purple) as well as a separate attribute (see .purple:hover).
+        </div>
+        <div id="demo3" class="demo">
+            <div id="greenSquare" class="square green"></div>
+            <div id="purpleSquare" class="square purple"></div>
+        </div>
+        <pre>
+    .green {
+        background-color: green;
+        transition: background-color 1s;
+    }
+    
+    .purple {
+        background-color: purple;
+        transition: background-color 1s;
+    }
+    
+    .green:hover {
+        background-color: lightgreen;
+        transition: background-color 3s;
+    }
+
+    .purple:hover {
+        background-color: red;
+        transition: background-color;
+        transition-duration: .5s;
+    }
+    
+    .green:hover ~ .purple {
+        background-color: lightpink;
+        transition: background-color 3s;
+    }
+        </pre>
+        <div class="explanation"><b>transition-property</b></div>
+        <div class="explanation">Like the transition duration, the transition-property can be set inline
+            with the "transition" attribute or as its own attribute.
+        </div>
+        <div id="demo4" class="demo">
+            <div id="greenSquare4" class="square green"></div>
+            <div id="purpleSquare4" class="square purple"></div>
+            <div id="orangeSquare4" class="square orange"></div>
+        </div>
+        <pre>
+    .green:hover ~ .orange {
+        background-color: red;
+        transition-duration: 1s;
+        transition-property: background-color;
+    }
+        </pre>
+        <div class="explanation"><b>transition-timing-function</b></div>
+        <div class="explanation">The timing function allows you to set almost an animation on the transition.
+            There are several different timing functions that can be used, and some of them have to do with 
+            steps, but that's where we get more into Animation rather than simply transition, so I'll leave 
+            that for a following topic.
+        </div>
+        <div class="explanation">This time, rather than transitioning colors, the squares will demonstrate 
+            the different timing functions by growing out. The default timing funciton is "linear", which 
+            we have seen already. Although there are several more properties of the timing function, these 
+            three are very common, and the rest will be covered in the later topics about transformations and 
+            animations.
+        </div>
+        <div id="demo5" class="demo">
+            <div id="greenSquare5" class="square green"></div>
+            <div id="purpleSquare5" class="square purple"></div>
+            <div id="orangeSquare5" class="square orange"></div>
+        </div>
+        <pre>
+    #greenSquare5:hover {
+        width: 100%;
+        transition-property: width;
+        transition-duration: 2s;
+        transition-timing-function: ease;
+    }
+    
+    #purpleSquare5:hover {
+        width: 100%;
+        transition-property: width;
+        transition-duration: 2s;
+        transition-timing-function: ease-in;
+    }
+    
+    #orangeSquare5:hover {
+        width: 100%;
+        transition-property: width;
+        transition-duration: 2s;
+        transition-timing-function: ease-out;
+    }
+        </pre>
+        <footer></footer>
+    </body>
+</html>

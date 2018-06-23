@@ -1,0 +1,125 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="stylesheet" href="trans-styles.css">
+    </head>
+    <body>
+        <header>
+            <h1>Code Topic: CSS Transformations</h1>
+        </header>
+        <div class="topic-info">Designing, Defining, and Triggering CSS3 Transformations without Custom Libraries</div>
+        <div class="explanation">In this topic, I'll be going over how to transform elements using only CSS. 
+            There are a lot of attributes under the CSS "transform" property, so I'm going to outline this topic by 
+            the groupings of these attributes and cover as much as I can.
+        </div>
+        <div class="explanation"><b>matrix</b></div>
+        <div class="explanation">The matrix attribute defines the shape of an element by offsetting its original 
+            dimensions.
+        </div>
+        <div id="demo1" class="demo trans-demo">
+            <div id="field11" class="hover-field">matrix 1</div>
+            <div id="field12" class="hover-field">matrix 2</div>
+            <div id="field13" class="hover-field">matrix 3</div>
+            <div id="field14" class="hover-field">matrix 4</div>
+            <div class="diamond"></div>
+        </div>
+        <pre>
+    #matrix1:hover ~ .diamond {
+        transform: matrix(0.866,0.5,-0.5,0.866,0,0);
+    }
+    
+    #matrix2:hover ~ .diamond {
+        transform: matrix(0.866,0.6,-0.8,0.866,0,0);
+    }
+    
+    #matrix3:hover ~ .diamond {
+        transform: matrix(0.586,0.8,-0.8,0.586,40,40);
+    }
+    
+    #matrix4:hover ~ .diamond {
+        transform: matrix(1.25, .25, .8, .4, 0, 0);
+    }
+        </pre>
+        <div class="explanation"><b>translate</b></div>
+        <div class="explanation">The translate property allows you to specify a 
+            translational movement along the X or Y axis (or Z for 3D objects).
+        </div>
+        <div id="demo2" class="demo trans-demo">
+            <div id="field21" class="hover-field">translate x</div>
+            <div id="field22" class="hover-field">translate y</div>
+            <div id="field23" class="hover-field">translate both</div>
+            <div class="diamond"></div>
+        </div>
+        <pre>
+    #translateX:hover ~ .diamond {
+        transform: translateX(300px);
+    }
+    
+    #translateY:hover ~ .diamond {
+        transform: translateY(20px);
+    }
+    
+    #translateBoth:hover ~ .diamond {
+        transform: translate(300px, 20px);
+    }
+        </pre>
+        <div class="explanation"><b>scale</b></div>
+        <div class="explanation">Similarly, an object can be scaled by its 
+            width (x), height (y), or both.
+        </div>
+        <div id="demo3" class="demo trans-demo">
+            <div id="field31" class="hover-field">scale x</div>
+            <div id="field32" class="hover-field">scale y</div>
+            <div id="field33" class="hover-field">scale both</div>
+            <div class="diamond"></div>
+        </div>
+        <pre>
+    #field31:hover ~ .diamond {
+        transform: scaleX(3);
+    }
+    
+    #field32:hover ~ .diamond {
+        transform: scaleY(.3);
+    }
+    
+    #field33:hover ~ .diamond {
+        transform: scale(3, .3);
+    }
+        </pre>
+        <div class="explanation"><b>rotate</b></div>
+        <div class="explanation">You know the drill. This time, we use 
+            degrees rather than pixels. Also, I'll use an image rather 
+            than a diamond to better demonstrate. Notice that rotating 
+            on a specific axis is more like flipping the image across 
+            that axis, whereas the "rotate" attribute it more of what 
+            you might expect a rotate to be.
+        </div>
+        <div id="demo4" class="demo trans-demo">
+                <div id="field41" class="hover-field">rotate x</div>
+                <div id="field42" class="hover-field">rotate y</div>
+                <div id="field43" class="hover-field">rotate both</div>
+                <img src="hallows.png">
+        </div>
+        <pre>
+    #rotateX:hover ~ img {
+        transition-duration: 2s;
+        transform: rotateX(180deg);
+    }
+    
+    #rotateY:hover ~ img {
+        transition-duration: 2s;
+        transform: rotateY(180deg);
+    }
+    
+    #rotateBoth:hover ~ img {
+        transition-duration: 2s;
+        transform: rotate(90deg);
+    }
+        </pre>
+        <div class="explanation">This combination of transitions with 
+            things like transformations is the beginning of setting up 
+            animations, which will be covered in the next topic.
+        </div>
+        <footer></footer>
+    </body>
+</html>
