@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SpaceA</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="ajaxRepo.js"></script>
+        <script src="scripts.js"></script>
+        <script type="text/javascript">
+            window.onload = getOnLoadFunction();
+        </script>
+        <script type="text/javascript">
+            var countdown = setInterval(function () {
+                if (document.getElementById("nxtLaunchDate")) {
+                    var launchDate = new Date(document.getElementById("nxtLaunchDate").innerText).getTime();
+
+                    var now = new Date().getTime();
+
+                    var difference = launchDate - now;
+
+                    var days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                    var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                    document.getElementById("nxtLaunchCountdown").innerHTML = days + "d " + hours + "h "
+                        + minutes + "m " + seconds + "s ";
+
+                    if (difference <= 0) {
+                        clearInterval(countdown);
+                        document.getElementById("nxtLaunchCountdown").innerHTML = "LAUNCHING";
+                    }
+                }
+            }, 1000);
+        </script>
+    </head>
+    <body>
+        <div id="contentContainer">
+            <div id="companyInfoContainer" class="white-back">
+                <div id="companyLogoContainer">
+                    <img src="spacex.png">
+                </div>
+                <div id="companyDetailsContainer">
+                    <div id="muskImageContainer">
+                        <img src="musk.jpg">
+                    </div>
+                    <div id="detailsContainer">
+                    </div>
+                </div>
+            </div>
+            <div id="historyInfoContainer" class="white-back">
+                <div id="historyTitle">Latest News</div>
+                <div id="historyList"></div>
+            </div>
+            <div id="nextLaunchContainer" class="white-back">
+                <div id="nextLaunchContents"></div>
+            </div>
+            <!-- <div id="rocketInfoContainer" class="white-back"></div> -->
+            <div id="lastLaunchContainer" class="white-back"></div>
+            <div class="footer"></div>
+        </div>
+    </body>
+</html>

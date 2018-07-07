@@ -61,3 +61,17 @@ pre {
 footer {
     height: 50px;
 }
+
+.demo {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#projectContainer {
+    margin: 10px;
+}
+
+#btnProject {
+    width: 100%;
+    cursor: pointer;
+}

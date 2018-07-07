@@ -1,0 +1,306 @@
+@font-face {
+    font-family: 'Exodar';
+    src: url('/project/fonts/exodar/Exodar-Outline.ttf')  format('truetype');
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    
+    background-image: url("background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    opacity: .85;
+}
+
+.footer {
+    grid-column: 1/6;
+    grid-row: 10;
+    height: 50px;
+}
+
+#contentContainer {
+    position: absolute;
+    left: 15%;
+    right: 15%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 30px 200px 200px 300px;
+    row-gap: 10px;
+    column-gap: 10px;
+}
+
+#muskImageContainer {
+    position: relative; /*needed so that it stays above everything else on the page*/
+    float: left;
+    width: 10%;
+    transition-property: width;
+    transition-duration: 1s;
+}
+
+#muskImageContainer:hover {
+    width: 25%;
+    transition-property: width;
+    transition-duration: 1s;
+}
+
+#muskImageContainer img {
+    width: 100%;
+    height: auto;
+}
+
+#companyDetailsContainer {
+    
+}
+
+#companyLogoContainer {
+    margin: 5px;
+}
+
+#companyLogoContainer img {
+    width: 400px;
+    height: auto;
+}
+
+#companyInfoContainer {
+    grid-row: 2;
+    grid-column: 1/6;
+    font-size: 19px;
+}
+
+#detailsContainer {
+    margin-left: 130px;
+}
+
+#companyInfoContainer > div {
+    margin-left: 15px;
+}
+
+#historyInfoContainer {
+    grid-row: 3/7;
+    grid-column: 1/4;
+    height: auto;
+}
+
+#historyList button {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#historyTitle {
+    font-size: 35px;
+    font-family: "Exodar";
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#companyName {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.white-back {
+    background-color: white;
+}
+
+.hist-item {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.hist-item-header {
+    width: 100%;
+    height: 20px;
+}
+
+.hist-item-header > div {
+    display: inline-block;
+}
+
+.hist-item-title {
+    font-size: 19px;
+    font-weight: bold;
+    float: left;
+}
+
+.hist-item-date {
+    font-size: 19px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.hist-flight-num {
+    font-size: 19px;
+    float: right;
+    border: 1px solid black;
+    margin-right: 20px;
+    padding: 0 10px 0 10px;
+}
+
+.hist-item-content {
+    margin: 10px 20px 10px 20px;
+}
+
+.hist-item-details {
+    font-size: 19px;
+}
+
+.hist-link {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 19px;
+}
+
+#nextLaunchContainer {
+    grid-row: 3/4;
+    grid-column: 4/6;
+}
+
+#nextLaunchContents {
+    width: 150%;
+    opacity: 0;
+}
+
+.trans-in {
+    transition: width 1.5s ease-out, opacity 1.5s ease-out;
+    width: 100% !important;
+    opacity: 1 !important;
+}
+
+#nxtLaunch {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 35px;
+    overflow: hidden;
+    font-family: "Exodar";
+}
+
+#nxtLaunchTitle {
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+}
+
+#nxtLaunchCountdown {
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    color: red;
+}
+
+#nxtLaunchRocket {
+    font-size: 22px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.hidden-data {
+    display: none;
+}
+
+#vidInside {
+    width: 100%;
+    height: 100%;
+    background-color: green;
+}
+
+.accordion:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+}
+
+
+
+#lastLaunchContainer {
+    grid-column: 4/6;
+    grid-row: 5/8;
+}
+
+#lastLaunchVideo {
+    width: 100%;
+    height: 200px;
+}
+
+#lastLaunchVideo iframe {
+    width: 80%;
+    height: 100%;
+    /* margin-top: 10px;
+    margin-bottom: 10px; */
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+
+#lastLaunchContent {
+    width: 100%;
+}
+
+#lastLaunchContent > div {
+    display: inline-block;
+}
+
+#lastLaunchPatch {
+    width: 45%;
+    height: 40%;
+}
+
+#lastLaunchPatch img {
+    width: 70%;
+    margin-left: 15%;
+    height: auto;
+}
+
+#lastLaunchDetails {
+    width: 45%;
+    float: right;
+    height: 40%;
+}
+
+a {
+    color: black;
+    font-size: 18px;
+}
+
+a:hover {
+    color: blue;
+}
+
+#lastLaunch {
+    text-align: center;
+    font-size: 35px;
+    font-family: "Exodar";
+    margin-bottom: 10px;
+}
+
+.last-launch-link {
+
+}
+
+#rocketInfoContainer {
+    grid-row: 4/5
+}
+
+.panel {
+    max-height: 0;
+    /* transition: max-height .4s ease-out; */
+    overflow: hidden;
+}
+
+.accordion.active ~ .panel {
+    max-height: 100%;
+    /* transition: max-height .4s ease-out; */
+}
