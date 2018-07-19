@@ -73,7 +73,6 @@ function getOnLoadFunction() {
     _ajax.getNextLaunchData(function (data) {
         if (data) {
             var launchData = JSON.parse(data);
-            
             var html = `
                 <div id="nxtLaunchDate" class="hidden-data">${launchData.launch_date_utc}</div>
                 <div id="nxtLaunch">NEXT LAUNCH:</div>
@@ -88,8 +87,6 @@ function getOnLoadFunction() {
             setTimeout(function () {
                 document.getElementById('nextLaunchContents').classList.add("trans-in");
             }, 1000);
-
-            
         } else {
             console.log("ERROR: Launch data returned null");
         }

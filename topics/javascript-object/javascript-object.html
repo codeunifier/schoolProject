@@ -8,26 +8,81 @@
         <header>
             <h1>Code Topic: JavaScript Objects</h1>
         </header>
-        <body>
-            <div class="topic-info">Show me work where you create an 
-                object that contains data and functions. Use 'new' to 
-                create several types of that object, modify the object 
-                attributes and call the associated functions</div>
-            <div class="explanation">One of the most appealing qualities
-                of JavaScript is its flexibility with objects and data
-                types. An object in JavaScript is essentially the same
-                thing as a class in most other languages. An object
-                can contain other objects and functions.
-            </div>
-            <div class="explanation">Look at the code below. Here, we
-                initialize a new object in JavaScript and give it a 
-                property and a method.
-            </div>
-            <pre>
+        <div class="topic-info">Show me work where you create an 
+            object that contains data and functions. Use 'new' to 
+            create several types of that object, modify the object 
+            attributes and call the associated functions</div>
+        <div class="explanation">One of the most appealing qualities
+            of JavaScript is its flexibility with objects and data
+            types. An object in JavaScript is essentially the same
+            thing as a class in most other languages. An object
+            can contain other objects and functions.
+        </div>
+        <div class="explanation">Look at the code below. Here, we
+            initialize a new object in JavaScript and give it a 
+            property and a method.
+        </div>
+        <pre>
+            function myFunction() {
+                var object = {}; //using curly brackets initializes a new object
             
-            </pre>
+                object.something = "good";
+                object.func = function () {
+                    console.log("I'm feeling " + this.something);
+                }
             
-            <button onclick="myFunction()">Load Doc</button>
-        </body>
+                object.func();
+            }
+        </pre>
+        <button onclick="myFunction()">My Function</button>
+        <span id="feeling"></span>
+        <div class="explanation">As you can see, an object is able to
+            reference its own properties.
+        </div>
+        <div class="explanation">Functions in JavaScript can act
+            as initializers for classes. The code sample below 
+            demonstrates an intializer and a couple instances of 
+            the "class."
+        </div>
+        <pre>
+            function Dog(breed, color, owner) {
+                this.breed = breed;
+                this.color = color;
+                this.owner = owner;
+            }
+            
+            function createDogs() {
+                var yourDog = new Dog("beagle", "brown/white", "you");
+                var myDog = new Dog("german shepherd", "brown/black", "me");
+            
+                console.log(yourDog.breed);
+                console.log(myDog.breed);
+            }
+        </pre>
+        <button onclick="createDogs()">Create Dogs</button>
+        <span id="dogs"></span>
+        <div class="explanation">We can add a couple methods to our Dog 
+            class to give it a bit more life.
+        </div>
+        <pre>
+            function Dog(breed, color, owner) {
+                this.breed = breed;
+                this.color = color;
+                this.owner = owner;
+                this.bark = function () {
+                    console.log("Woof!");
+                }
+            }
+            
+            function createDogs() {
+                var yourDog = new Dog("beagle", "brown/white", "you");
+                var myDog = new Dog("german shepherd", "brown/black", "me");
+            
+                myDog.bark();
+            }
+        </pre>
+        <button onclick="bark()">What does the dog say?</button>
+        <span id="bark"></span>
+        <footer></footer>
     </body>
 </html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="stylesheet" href="storage-style.css">
+        <script type="text/javascript" src="storage-scripts.js"></script>
+        <script>
+            window.onload = function () {
+                loadCartItems();
+                loadDemoHtml();
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1>Code Topic: Local Storage</h1>
+        </header>
+        <div class="topic-info">Storing and Retrieving Arrays, Associative Arrays, and Objects.
+            Storing just a simple string will get zero points.</div>
+        <div class="explanation">Storage is critical for web pages for a lot of reasons, but
+            most things shouldn't be stored where it's easy for people with malicious intent 
+            to access. However, there are some things that are really useful for a user if 
+            stored on their local machine that wouldn't necessarily need to be stored on the 
+            server or in a database.
+        </div>
+        <div class="explanation">Exploiting a browser's storage capabilities has usually 
+            involved cookies that save sensitive information like passwords or other less 
+            sensitive data that might be somewhat costly to query a server for but can be 
+            stored locally to save the user time and save the server some processing power.
+            This can be anything from HTML data to arrays to simple strings.
+        </div>
+        <div class="explanation">Below is a simple example that keeps track of how many times
+            you have clicked this button.
+        </div>
+        <br>
+        <button onclick="onButtonClick()">Click me!</button>
+        <span id="clicks"></span>
+        <div class="explanation">If you open your developer tools and navigate to the Local 
+            Storage, you will see the value of this key increase as the button is clicked. This 
+            value can be cleared through the dev tools to reset the number.
+        </div>
+        <div class="explanation">This is accomplished in JavaScript through very simple lines 
+            of code, as shown below.
+        </div>
+        <pre>
+    if (localStorage.clickCount) {
+        localStorage.clickCount++;
+    } else {
+        localStorage.clickCount = 1;
+    }
+
+    document.getElementById("clicks").innerHTML = "Number of clicks: " + localStorage.clickCount;
+        </pre>
+        <div class="explanation">The "localStorage" object is already built into JavaScript, 
+            making storing and getting values in local storage dead simple, like any other 
+            JavaScript object. This allows us to create and store much more complicated objects 
+            in local storage than just a simple number value.
+        </div>
+        <div class="explanation">Consider the little shopping cart UI below. Items selected can 
+            be saved in local storage for the next time a user comes to the web page. Select a few
+            numbers for the items below and click the "Save to Cart" button, then refresh the page 
+            to see your selections still there.
+        </div>
+        <div id="shoppingCart">
+            <div class="cart-item"><input id="input_Apples" type="number" min="1" max="10"><span>Apples</span></div>
+            <div class="cart-item"><input id="input_Oranges" type="number" min="1" max="10"><span>Oranges</span></div>
+            <div class="cart-item"><input id="input_Bananas" type="number" min="1" max="10"><span>Bananas</span></div>
+            <div class="cart-item"><input id="input_Kiwi" type="number" min="1" max="10"><span>Kiwi</span></div>
+        </div>
+        <div id="cartButtons">
+            <button onclick="saveSelections()">Save to Cart</button>
+            <button onclick="clearShoppingCart()">Clear Selections</button>
+        </div>
+        <div class="explanation">This is done with the following three functions:</div>
+        <pre>
+        //called when the "Save to Cart" button is clicked
+        function saveSelections(item) {
+            var elms = document.getElementsByClassName("cart-item");
+            var selections = [];
+        
+            for (var i = 0; i < elms.length; i++) {
+                if (elms[i].childNodes[0].value != "") {
+                    selections.push({
+                        "itemName": elms[i].childNodes[1].innerText,
+                        "itemCount": elms[i].childNodes[0].value
+                    });
+                }
+            }
+        
+            //associative arrays must be stored as stringified objects in local storage
+            localStorage.cart = JSON.stringify(selections);
+        }
+        
+        //called when the "Clear Selections" button is clicked
+        function clearShoppingCart() {
+            var elms = document.getElementsByClassName("cart-item");
+        
+            for (var i = 0; i < elms.length; i++) {
+                elms[i].childNodes[0].value = undefined;
+            }
+        
+            localStorage.removeItem("cart");
+        }
+        
+        //called when the web page loads
+        function loadCartItems() {
+            if (localStorage.cart) {
+                //associative arrays are stored as strings in local storage
+                var storageCart = JSON.parse(localStorage.cart);
+                
+                for (var i = 0; i < storageCart.length; i++) {
+                    document.getElementById("input_" + storageCart[i].itemName).value = storageCart[i].itemCount;
+                }
+            }
+        }
+        </pre>
+        <div class="explanation">Entire HTML files can be stored in local storage using 
+            this same method. Opening dev tools will reveal that a demoHTML key also 
+            resides in local storage. Deleting this value and refreshing the page will 
+            cause an ajax call to be made to retrieve the HTML again, which can also 
+            be seen in the Network tab of the developer tools.
+        </div>
+        <div id="demo">
+
+        </div>
+        <div class="explanation">Something to be mindful of when storing HTML code 
+            locally on the browser is that changes or updates to that code will only be 
+            "updated" on users' browsers when they clear their cache and refresh the page.
+            This isn't something people typically do or would ever really realize they
+            might have to do, so it's best practice to only store HTML code locally 
+            if it likely won't be changing much in the future or you have backend code 
+            in place to check for outdated code and update it if necessary.
+        </div>
+        <footer></footer>
+    </body>
+</html>

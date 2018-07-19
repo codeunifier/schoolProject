@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="stylesheet" href="json-style.css">
+        <script type="text/javascript" src="json-scripts.js"></script>
+        <script>
+            window.onload = function () {
+                loadFiles();
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1>Code Topic: JSON Parse & Stringify</h1>
+        </header>
+        <div class="topic-info">Build a JSON object that is MUCH more than { name: "Bob" }. 
+            Add attributes to a JSON object. It should include arrays, arrays of JSON 
+            sub-objects, numbers and strings.</div>
+        <div class="explanation">A while ago I built a website for the game Dungeons &
+            Dragons that would help users create characters. I wasn't as experienced a 
+            programmer back then, so I did all of my coding and developing of this 
+            website offline, without a server or anything. Instead of using a database, 
+            I built everything with JSON objects. Below is an example taken from this 
+            JSON code for the Barbarian class.
+        </div>
+        <pre id="dndFile">
+
+        </pre>
+        <div class="explanation">While this was a pretty horrible and time-consuming
+            way of making this website, it offers a pretty good example of how JSON 
+            objects can be made and used. As you can see in the sample code above, a 
+            JSON object is basically a glorified JavaScript object (or maybe it's the 
+            other way around?). The biggest difference is that each "attribute" in the 
+            JSON object is defined in quotes. The values given to each attribute do not
+            always need to be in quotes, like numbers.
+        </div>
+        <div class="explanation">Let's user a simpler example to explain further. We can
+            widdle the Barbarian class down to just a level and a couple attacks. And let's
+            add a Wizard class with a couple attacks as well.
+        </div>
+        <pre id="simpleExample">
+
+        </pre>
+        <div class="explanation">You'll notice that this JSON object begins and ends 
+            with square brackets rather than curly braces, since this object is now an 
+            array of two JSON sub-objects, similar to the structure of each class's attacks.
+            Creating JSON objects like this makes it possible to essentially store 
+            information in a structure that makes sense to us and to its purpose. it's 
+            important to recognize that functions cannot be defined within JSON objects. JSON
+            is purely a data definition language, not an actual programming langugage that 
+            ever gets compiled.
+        </div>
+        <div class="explanation">That being said, there are a few set data types that are
+            supported in JSON objects. In the example above, you'll see strings, numbers, 
+            boolean values, objects, and arrays all being set as values.
+        </div>
+        <div class="explanation">Interacting with JSON objects is pretty straightforward 
+            once you know the syntax in the language you're working with. Because the nature
+            of objects in JavaScript is so similar to JSON objects, it's one of the easiest
+            languages to use in demonstrating JSON objects. We can use JavaScript to list out
+            our two classes and their respective attacks. We'll use a function called readFile
+            that will read the json file and call the callback function providing the text
+            in that file.
+        </div>
+        <pre>
+        //as long as the text is in proper JSON format, the file can be .json or .txt
+        readFile("simple-example.json", function (text) {
+
+            //"text" is a string containing the contents of the file
+
+
+            //parse the text into a JSON object
+            var jsonObj = JSON.parse(text);
+
+
+            //attributes of the object can be accessed in different ways, like regular JavaScript objects
+            console.log(jsonObj[0].ClassName);      //prints "Barbarian"
+            console.log(jsonObj[1]["ClassName"]);   //prints "Wizard"
+
+
+            //note that capitalization matters, so make sure to match what is in the JSON file
+            console.log(jsonObj[0].classname);      //prints "undefined"
+
+
+            //let's set the classes to their own objects in JavaScript
+            var barbarian = jsonObj[0];
+            var wizard = jsonObj[1];
+
+
+            //printing their attacks can be a bit tricky, since we have to delve into the JSON object
+            for (var i = 0; i < barbarian.Attacks.length; i++) {
+                console.log(barbarian.Attacks[i].AttackName);   //prints "Punch" and "Axe";
+            }
+        });
+        </pre>
+        <div class="explanation">It is also possible to write to a JSON file in our code from a 
+            JavaScript object. Let's add a Druid class into our JSON object. We'll assume that 
+            we've already built a function to read the original file and parse it into an object.
+        </div>
+        <pre>
+        //get the original JSON object
+        var jsonObj = getJSONFromFile();
+
+
+        //add the new Druid class
+        jsonObj.push({
+            "ClassName": "Druid",
+            "Level": 1,
+            "IsAlive": true,
+            "Attacks": [
+                {
+                    "AttackName": "Transform",
+                    "Damage": null
+                },
+                {
+                    "AttackName": "Bear Claw",
+                    "Damage": 6
+                }
+            ]
+        });
+
+
+        //to write this back into the JSON file, we have to convert the JSON object into a string
+        var stringified = JSON.strigify(jsonObj);
+
+
+        console.log(stringified);   //prints the entire object as a single string
+
+
+        //call function to write to file
+        writeToFile(stringified);
+        </pre>
+        <div class="explanation">It's important to note that once the JSON object has been parsed 
+            into a JavaScript object, it can be modified any way a JavaScript object could be, so 
+            it's good practice to have some sort of constructor function within your code when adding
+            to a JSON object to ensure the model stays consistent.
+        </div>
+        <footer></footer>
+    </body>
+</html>

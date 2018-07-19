@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="stylesheet" href="tags-styles.css">
+        <script type="text/javascript" src="tags-scripts.js"></script>
+        <script>
+            window.onload = function() {
+                createCanvas1();
+                createCanvas2();
+                createCanvas3();
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1>Code Topic: HTML5 Tags - Video, Audio, and Canvas</h1>
+        </header>
+        <div class="topic-info">Show me you can imbed and play an audio or video clip. 
+            Show me something cool with Canvas (draw a graph, use your finger to 
+            finger paint).</div>
+        <div class="explanation">As we have all seen with Facebook, YouTube, Netflix,
+            Hulu, etc, it's possible to embed a video into a webpage. HTML actually 
+            makes it rather easy to do. It is done using the "video" tag, with a "source"
+            tag inside of it. There are three video formats that are supported with this
+            tag, to be used with different browsers, just in case a browser doesn't 
+            support a certain format. Below is an example of this where a YouTube video 
+            has been set to the source. As you can see, nothing actually plays. In fact, 
+            the only reason anything is visible at all is because we've added the "controls"
+            attribute to the "video" tag.
+        </div>
+        <div class="video-container">
+            <video controls>
+                <source src="https://www.youtube.com/embed/watch?v=dQw4w9WgXcQ" type="video/webm">
+                Video not supported on this browser.
+            </video>
+        </div>
+        <pre>
+            <xmp>
+    <video controls>
+        <source src="https://www.youtube.com/embed/watch?v=dQw4w9WgXcQ" type="video/webm">
+    </video>
+            </xmp>
+        </pre>
+        <div class="explanation">The "video" tag in HTML is moreso used for playing 
+            local video files, something actually saved in the folder structure rather 
+            than simply a link to another website. For example, the video below is saved 
+            in my files, because who wouldn't want to watch a video of an adorable otter 
+            whenever they could?
+        </div>
+        <div class="video-container">
+            <video controls>
+                <source src="otter.mp4" type="video/mp4">
+            </video>
+        </div>
+        <pre>
+            <xmp>
+    <video controls>
+        <source src="otter.mp4" type="video/webm">
+    </video>
+            </xmp>
+        </pre>
+        <div class="explanation">In order to get a video to play that's on a different site,
+            we'll have to embed it inside of an iframe element. YouTube provides a way to 
+            generate an embedded link to copy and paste into your web page. It's that easy!
+        </div>
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" 
+            allow="autoplay; encrypted-media" allowfullscreen>
+        </iframe>
+        <pre>
+            <xmp>
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" 
+        allow="autoplay; encrypted-media" allowfullscreen>
+    </iframe>
+            </xmp>
+        </pre>
+        <div class="explanation">Notice the word "embed" in the url path of the source below.
+            If you have an ad-blocker installed, there might not be any ads playing before 
+            the video. You can open your developer tools and look at the console to see them 
+            blocked by the client.
+        </div>
+        <div class="explanation">Similarly, an audio file can be played simply through 
+            HTML tags. Or rather, through the "audio" tag.
+        </div>
+        <audio controls>
+            <source src="closer.mp3" type="audio/mp3">
+        </audio>
+        <pre>
+            <xmp>
+    <audio controls>
+        <source src="closer.mp3" type="audio/mp3">
+    </audio>
+            </xmp>
+        </pre>
+        <div class="explanation">Another kind of embedded media is the "canvas" element.
+            A canvas is used for drawing shapes, polygons, and other designs. There are 
+            dozens of plug-ins and other tools that can be used to make drawing on a canvas
+            simple to implement, but here I'll demonstrate some of the basics in JavaScript.
+            Below, the canvas is listening to the mousemove event and will draw small red 
+            circles wherever it finds the mouse.
+        </div>
+        <canvas id="canvas1">
+        </canvas>
+        <button id="btnClearCanvas1" onclick="clearCanvas1()">Clear</button>
+        <pre>
+    var prevX, prevY;
+    var canvas, context;
+
+    function createCanvas() {
+        canvas = document.getElementById("canvas1");
+        context = canvas.getContext("2d");
+        
+        canvas.addEventListener("mousemove", draw, false);
+    }
+
+    function draw(e) {
+        var pos = getMousePos(canvas, e);
+        context.fillStyle = "red";
+        context.fillRect(pos.x-1, pos.y-1, 2, 2);
+    }
+
+    function getMousePos(canvas, event) {
+        var rect = canvas.getBoundingClientRect(), 
+            scaleX = canvas.width / rect.width, 
+            scaleY = canvas.height / rect.height;
+
+        return {
+            x: (event.clientX - rect.left) * scaleX,
+            y: (event.clientY - rect.top) * scaleY
+        }
+    }
+
+    function clearCanvas1() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+    }
+        </pre>
+        <div class="explanation">A canvas can support practically any shape you can think of,
+            and they can be drawn in response to any mouse event.
+        </div>
+        <canvas id="canvas2" width=475 height=201>
+
+        </canvas>
+        <pre>
+    function createCanvas2() {
+        canvas = document.getElementById("canvas2");
+        context = canvas.getContext("2d");
+    
+        //rectangle
+        context.fillStyle = "blue";
+        context.fillRect(10, 10, 20, 20);
+    
+        //triangle
+        context.fillStyle = "orange";
+        context.beginPath();
+        context.moveTo(35, 70);
+        context.lineTo(60, 95);
+        context.lineTo(60, 45);
+        context.fill();
+        context.closePath();
+    
+        //smiley face
+        context.fillStyle = "black";
+        context.beginPath();
+        context.arc(145, 75, 50, 0, Math.PI * 2, true); // Outer circle
+        context.moveTo(180, 75);
+        context.arc(145, 75, 35, 0, Math.PI, false);  // Mouth (clockwise)
+        context.moveTo(135, 65);
+        context.arc(130, 65, 5, 0, Math.PI * 2, true);  // Left eye
+        context.moveTo(165, 65);
+        context.arc(160, 65, 5, 0, Math.PI * 2, true);  // Right eye
+        context.stroke();
+        context.closePath();
+    }
+        </pre>
+        <div class="explanation">As you can see from the source code, it can get rather 
+            complicated to draw what you might think is a simple shape. And while it's possible
+            to make complex images like the one below...
+        </div>
+        <canvas id="canvas3" width=951 height=402>
+
+        </canvas>
+        <pre>
+    //compliments of Mozilla
+    //https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
+
+    function drawPacman() {
+        var canvas = document.getElementById('canvas3');
+        if (canvas.getContext) {
+          var ctx = canvas.getContext('2d');
+      
+          roundedRect(ctx, 12, 12, 150, 150, 15);
+          roundedRect(ctx, 19, 19, 150, 150, 9);
+          roundedRect(ctx, 53, 53, 49, 33, 10);
+          roundedRect(ctx, 53, 119, 49, 16, 6);
+          roundedRect(ctx, 135, 53, 49, 33, 10);
+          roundedRect(ctx, 135, 119, 25, 49, 10);
+      
+          ctx.beginPath();
+          ctx.arc(37, 37, 13, Math.PI / 7, -Math.PI / 7, false);
+          ctx.lineTo(31, 37);
+          ctx.fill();
+      
+          for (var i = 0; i < 8; i++) {
+            ctx.fillRect(51 + i * 16, 35, 4, 4);
+          }
+      
+          for (i = 0; i < 6; i++) {
+            ctx.fillRect(115, 51 + i * 16, 4, 4);
+          }
+      
+          for (i = 0; i < 8; i++) {
+            ctx.fillRect(51 + i * 16, 99, 4, 4);
+          }
+      
+          ctx.beginPath();
+          ctx.moveTo(83, 116);
+          ctx.lineTo(83, 102);
+          ctx.bezierCurveTo(83, 94, 89, 88, 97, 88);
+          ctx.bezierCurveTo(105, 88, 111, 94, 111, 102);
+          ctx.lineTo(111, 116);
+          ctx.lineTo(106.333, 111.333);
+          ctx.lineTo(101.666, 116);
+          ctx.lineTo(97, 111.333);
+          ctx.lineTo(92.333, 116);
+          ctx.lineTo(87.666, 111.333);
+          ctx.lineTo(83, 116);
+          ctx.fill();
+      
+          ctx.fillStyle = 'white';
+          ctx.beginPath();
+          ctx.moveTo(91, 96);
+          ctx.bezierCurveTo(88, 96, 87, 99, 87, 101);
+          ctx.bezierCurveTo(87, 103, 88, 106, 91, 106);
+          ctx.bezierCurveTo(94, 106, 95, 103, 95, 101);
+          ctx.bezierCurveTo(95, 99, 94, 96, 91, 96);
+          ctx.moveTo(103, 96);
+          ctx.bezierCurveTo(100, 96, 99, 99, 99, 101);
+          ctx.bezierCurveTo(99, 103, 100, 106, 103, 106);
+          ctx.bezierCurveTo(106, 106, 107, 103, 107, 101);
+          ctx.bezierCurveTo(107, 99, 106, 96, 103, 96);
+          ctx.fill();
+      
+          ctx.fillStyle = 'black';
+          ctx.beginPath();
+          ctx.arc(101, 102, 2, 0, Math.PI * 2, true);
+          ctx.fill();
+        }
+    }
+    
+    // A utility function to draw a rectangle with rounded corners.
+    
+    function roundedRect(ctx, x, y, width, height, radius) {
+      ctx.beginPath();
+      ctx.moveTo(x, y + radius);
+      ctx.lineTo(x, y + height - radius);
+      ctx.arcTo(x, y + height, x + radius, y + height, radius);
+      ctx.lineTo(x + width - radius, y + height);
+      ctx.arcTo(x + width, y + height, x + width, y + height-radius, radius);
+      ctx.lineTo(x + width, y + radius);
+      ctx.arcTo(x + width, y, x + width - radius, y, radius);
+      ctx.lineTo(x + radius, y);
+      ctx.arcTo(x, y, x, y + radius, radius);
+      ctx.stroke();
+    }
+        </pre>
+        <div class="explanation">It's pretty obvious that this isn't always the most
+            effective way to draw things, but it can be highly useful for a basic 
+            painter. At my work, I worked on a project that my boss started that is 
+            a node module for a canvas drawer. The source code can be found
+            <a href="https://www.npmjs.com/package/angular5-canvas-drawer"><b>here</b></a>.
+            The node module is for use in angular5, so a demonstration here would be 
+            a little difficult, but it has been highly effective for our use, at least.
+            My work hired me on as a Software Developer to help develop this and other
+            web-based tools, and we were able to make this canvas drawer by utilizing
+            these basic principles shown here (with our own flavor added, of course).
+        </div>
+        <footer></footer>
+    </body>
+</html>

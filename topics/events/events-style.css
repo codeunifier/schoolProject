@@ -1,0 +1,38 @@
+#circle {
+    display: none;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid green;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.demo {
+    width: 100%;
+}
+
+.demo > * {
+    display: inline-block;
+    width: 49%;
+}
+
+.demo-right {
+    float: right;
+}
+
+.demo-left > * {
+    margin-bottom: 15px;
+}
+
+#changeBox {
+    width: 100px;
+    height: 100px;
+    background-color: tomato;
+    font-size: 18px;
+    text-align: center;
+    line-height: 100px;
+    vertical-align: middle;
+}

@@ -1,0 +1,177 @@
+.demo {
+    margin-top: 15px;
+    height: 100px;
+    width: 100%;
+}
+
+#demo1 {
+    height: 200px !important;
+}
+
+#demo2 .square:hover {
+    background-color: lightgreen;
+    transition: background-color 3s;
+    transition-delay: 2s;
+}
+
+.square {
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.green {
+    background-color: green;
+    transition-duration: 1s;
+}
+
+.purple {
+    background-color: purple;
+    transition-duration: 1s;
+}
+
+.orange {
+    background-color: orange;
+    transition-duration: 1s;
+}
+
+#demo3 .green {
+    background-color: green;
+    transition: background-color 1s;
+}
+
+#demo3 .purple {
+    background-color: purple;
+    transition: background-color 1s;
+}
+
+#demo3 .green:hover {
+    background-color: lightgreen;
+    transition: background-color 3s;
+}
+
+#demo3 .purple:hover {
+    background-color: red;
+    transition: background-color;
+    transition-duration: .5s;
+}
+
+#demo3 .green:hover ~ .purple {
+    background-color: lightpink;
+    transition: background-color 3s;
+}
+
+#demo4 .green:hover {
+    background-color: lightgreen;
+    transition: background-color 3s;
+}
+
+#demo4 .green:hover ~ .purple {
+    background-color: lightpink;
+    transition: background-color 3s;
+}
+
+#demo4 .green:hover ~ .orange {
+    background-color: red;
+    transition-duration: 1s;
+    transition-property: background-color;
+}
+
+#demo4 .orange {
+    float: right;
+}
+
+#demo5 .green:hover {
+    width: 75%;
+    transition-property: width;
+    transition-duration: 2s;
+    transition-timing-function: ease;
+}
+
+#demo5 .purple:hover {
+    width: 75%;
+    transition-property: width;
+    transition-duration: 2s;
+    transition-timing-function: ease-in;
+}
+
+#demo5 .orange:hover {
+    width: 75%;
+    transition-property: width;
+    transition-duration: 2s;
+    transition-timing-function: ease-out;
+}
+
+.circle-demo {
+    border-radius: 50%;
+    margin-left: 40%;
+    margin-top: 20%;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    background-color: lightblue;
+    border: 1px solid black;
+    transform: rotate(45deg) translate(150px) rotate(-45deg);
+}
+
+#circle {
+    animation-name: orbitR;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+#circle:hover {
+    background-color: red;
+    width: 1px;
+    height: 1px;
+    transition: width 3s, height 3s;
+}
+
+.clockwise {
+    -webkit-animation: orbit 4s linear infinite; /* Chrome, Safari 5 */
+    -moz-animation: orbit 4s linear infinite; /* Firefox 5-15 */
+    -o-animation: orbit 4s linear infinite; /* Opera 12+ */
+    animation: orbit 4s linear infinite;
+}
+
+.counterclockwise {
+    -webkit-animation: orbitR 4s linear infinite; /* Chrome, Safari 5 */
+       -moz-animation: orbitR 4s linear infinite; /* Firefox 5-15 */
+         -o-animation: orbitR 4s linear infinite; /* Opera 12+ */
+            animation: orbitR 4s linear infinite;
+}
+
+@-webkit-keyframes orbit {
+	from { 	-webkit-transform: rotate(0deg) translateX(150px) rotate(0deg); }
+	to   {  -webkit-transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+}
+@-moz-keyframes orbit {
+	from { 	-moz-transform: rotate(0deg) translateX(150px) rotate(0deg); }
+	to   {  -moz-transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+}
+@-o-keyframes orbit {
+	from { 	-o-transform: rotate(0deg) translateX(150px) rotate(0deg); }
+	to   {  -o-transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+}
+@keyframes orbit {
+	from {  transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+	to   { 	transform: rotate(0deg) translateX(150px) rotate(0deg); }
+}
+@-webkit-keyframes orbitR {
+	from {  -webkit-transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+	to   { 	-webkit-transform: rotate(0deg) translateX(150px) rotate(0deg); }
+}
+@-moz-keyframes orbitR {
+	from {  -moz-transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+	to   { 	-moz-transform: rotate(0deg) translateX(150px) rotate(0deg); }
+}
+@-o-keyframes orbitR {
+	from {  -o-transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+	to   { 	-o-transform: rotate(0deg) translateX(150px) rotate(0deg); }
+}
+@keyframes orbitR {
+	from { 	transform: rotate(0deg) translateX(150px) rotate(0deg); }
+	to   {  transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+}

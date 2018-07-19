@@ -1,0 +1,32 @@
+[
+    {
+        "ClassName": "Barbarian",
+        "Level": 1,
+        "IsAlive": true,
+        "Attacks": [
+            {
+                "AttackName": "Punch",
+                "Damage": 2
+            },
+            {
+                "AttackName": "Axe",
+                "Damage": 5
+            }
+        ]
+    },
+    {
+        "ClassName": "Wizard",
+        "Level": 1,
+        "IsAlive": true,
+        "Attacks": [
+            {
+                "AttackName": "Firebolt",
+                "Damage": 3
+            },
+            {
+                "AttackName": "Frost Ray",
+                "Damage": 3
+            }
+        ]
+    }
+]

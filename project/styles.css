@@ -304,7 +304,6 @@ a:hover {
 
 .panel {
     max-height: 0;
-    
     -webkit-transition: max-height .4s ease-out;
     -moz-transition: max-height .4s ease-out;
     -o-transition: max-height .4s ease-out;

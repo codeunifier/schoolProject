@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="stylesheet" href="dom-style.css">
+        <script type="text/javascript" src="dom-scripts.js"></script>
+        <script>
+            window.onload = function () {
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1>Code Topic: DOM Manipulation</h1>
+        </header>
+        <div class="topic-info">Using createElement, appendChild, insertBefore etc.
+            DOM allows you to find and create/delete elements in your web page. You 
+            will need to dynamically add fields to your page, allow those elements 
+            to be deleted, and once you have access to that element make changes to 
+            its style attributes.</div>
+        <div class="explanation">This page will walk through several DOM functions 
+            in JavaScript. Hardly any of these functions will ever be used in an 
+            actual work environment since jQuery offers these same functions but in 
+            a faster, more reliable, easier-to-understand way, but these will help 
+            with the basic concept of changing HTML live. The source code will be 
+            given beside a working example of each function in action.
+        </div>
+        <h4>createElement & appendChild with textNode</h4>
+        <div class="demo-container">
+            <pre>
+    var btn = document.createElement("button");
+    var btnText = document.createTextNode("Click me!");
+
+    var link = document.createElement("a");
+    var linkText = document.createTextNode("Go to Google");
+
+    link.setAttribute('href', 'https://www.google.com');
+
+    btn.appendChild(btnText);
+    link.appendChild(linkText);
+
+    document.getElementById("demo_1").appendChild(btn);
+    document.getElementById("demo_1").appendChild(link);
+            </pre>
+            <div id="demo_1"class="demo">
+                <input type="button" onclick="onCreateElementClick()" value="Create Element"/>
+                <br><br>
+            </div>
+        </div>
+        <h4>removeChild</h4>
+        <div class="demo-container">
+            <pre>
+
+
+
+
+    var infestation = document.getElementById("infested");
+
+    if (infestation.firstChild != null) {
+        infestation.removeChild(infestation.firstChild);
+    }
+            </pre>
+            <div id="demo_2" class="demo">
+                <input type="button" onclick="onRemoveChildClick()" value="Remove Rat"/>
+                <br><br>
+                <div id="infested">
+                    <img src="rat.jpg"><img src="rat.jpg"><img src="rat.jpg"><img src="rat.jpg">
+                    <img src="rat.jpg"><img src="rat.jpg"><img src="rat.jpg"><img src="rat.jpg">
+                    <img src="rat.jpg"><img src="rat.jpg"><img src="rat.jpg"><img src="rat.jpg">
+                    <img src="rat.jpg"><img src="rat.jpg"><img src="rat.jpg"><img src="rat.jpg">
+                    <img src="rat.jpg"><img src="rat.jpg">
+                </div>
+            </div>
+        </div>
+        <h4>replaceChild</h4>
+        <div class="demo-container">
+            <pre>
+    var pineAnch = document.getElementById("item_1");
+    var brocSpin = document.getElementById("item_2");
+
+    var newItem1 = pineAnch.innerText == "Pineapple" 
+        ? "Anchovies" : "Pineapple";
+    var newItem2 = brocSpin.innerText == "Broccoli" 
+        ? "Spinach" : "Broccoli";
+
+    pineAnch.replaceChild(document.createTextNode(newItem1),
+        pineAnch.firstChild);
+    brocSpin.replaceChild(document.createTextNode(newItem2),
+        brocSpin.firstChild);
+            </pre>
+            <div id="demo_3" class="demo">
+                <input type="button" onclick="onReplaceChildClick()" value="Replace Element"/>
+                <br><br>
+                We're getting a large deluxe pizza. What should we get on it?
+                <ul>
+                    <li>Pepperoni</li>
+                    <li>Chicken</li>
+                    <li>Onions</li>
+                    <li id="item_1">Pineapple</li>
+                    <li>Sausage</li>
+                    <li id="item_2">Broccoli</li>
+                </ul>
+            </div>
+        </div>
+        <h4>insertBefore</h4>
+        <div class="demo-container">
+            <pre>
+
+
+    var newElm = document.createElement("button");
+    var newElmText = document.createTextNode("Medium");
+
+    newElm.appendChild(newElmText);
+
+    var container = document.getElementById("container");
+    
+    //nodes are text, button, text, button, hence the 3
+    container.insertBefore(newElm, container.childNodes[3]);
+            </pre>
+            <div class="demo">
+                <input type="button" onclick="onInsertBeforeClick()" value="Insert element"/>
+                <br><br>
+                <div id="container-1">
+                    <button id="button_high">High</button>
+                    <button id="button_low">Low</button>
+                </div>
+            </div>
+        </div>
+        <footer></footer>
+    </body>
+</html>

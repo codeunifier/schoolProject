@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="stylesheet" href="css-style.css">
+        <script type="text/javascript" src="css-scripts.js"></script>
+        <script>
+            window.onload = function () {
+                document.getElementById("demo_5_text").disabled = true;
+
+                document.getElementById("demo_5_checkbox").onchange = function () {
+                    document.getElementById("demo_5_text").disabled = !this.checked;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1>Code Topic: CSS Class Properties and JavaScript</h1>
+        </header>
+        <div class="topic-info">It is common to use the on Hover CSS feature to do 
+            something to a screen elements attributes. You need to learn how to 
+            change a style attribute directly using JavaScript.</div>
+        <div class="explanation">CSS features a long list of pseudo-classes that 
+            can be used to change the CSS of an element for a given state, like when
+            something has been clicked, the mouse is hovering over it, or an item
+            is enabled/disabled. As seen in previous topics, these properties can
+            also be changed using JavaScript (or more commonly jQuery).
+        </div>
+        <div class="demo-container">
+            <pre>
+button:hover {
+    color: red;
+}
+
+a:visited {
+    color: orange;
+}
+
+input:focus::-webkit-input-placeholder {
+    color: green;
+    text-align: center;
+}
+            </pre>
+            <div id="demo_1" class="demo">
+                <br>
+                <button id="demo_1_button">Hover over me!</button>
+                <br><br><br>
+                Click the link then return to this page.<br>
+                Also, a refresh of this page will keep the color.<br>
+                <a id="demo_1_link" href="https://www.google.com">Link to Google</a>
+                <br><br><br>
+                <input id="demo_1_input" type="text" placeholder="Click in here to focus">
+            </div>
+        </div>
+        <div class="explanation">This concept can be taken a step further to produce
+            a simple form of something like a popover or a tooltip.
+        </div>
+        <div class="demo-container">
+            <pre>
+#hoverable:hover .popover {
+    display: inline-block;
+}
+
+#popover_container {
+    display: none;
+}
+
+#popover_container > * {
+    display: inline-block;
+}
+            </pre>
+            <div id="demo_2" class="demo">
+                <br>
+                <div id="hoverable">
+                    <button id="demo_2_button" onclick="onDemoTwoButtonClick()">What do I do?</button>
+                    <div id="popover_container" class="popover">
+                        <div id="popover_arrow"></div><div id="popover_text">Whatever you do, don't click it.</div>
+                    </div>
+                </div>
+                <br>
+                <div id="demo_2_hidden_1" class="hidden">Why would you do such a thing?</div>
+                <div id="demo_2_hidden_2" class="hidden">That hurts.</div>
+                <br>
+                <div id="demo_2_hidden_3" class="hidden">Stop it.</div>
+                <div id="demo_2_hidden_4" class="hidden">Ouch!</div>
+                <div id="demo_2_hidden_5" class="hidden">Why???</div>
+                <div id="demo_2_hidden_6" class="hidden">You're a monster.</div>
+                <br><br>
+                <div id="demo_2_hidden_7" class="hidden">Are you enjoying this?</div>
+                <div id="demo_2_hidden_8" class="hidden">Does this give you satisfaction?</div>
+                <br>
+                <div id="demo_2_hidden_9" class="hidden">You're not in control here.</div>
+                <br>
+                <div id="demo_2_hidden_10" class="hidden">Are you that <i><b>determined?</b></i></div>
+                <br>
+                <div id="demo_2_hidden_11" class="hidden">Do it again. I dare you.</div>
+                <div id="flowey"><img src="flowey.png"></div>
+            </div>
+        </div>
+        <div class="explanation">These CSS changes are only possible when trying to alter the current
+            element being interacted with or its children. To influence another element entirely, we
+            use JavaScript. Every attribute set in CSS can be modified this way.
+        </div>
+        <div class="demo-container">
+            <pre class="scroll-y">
+
+var elmVis = document.getElementById("toggleVis");
+elmVis.style.visibility = elmVis.style.visibility == "hidden" ? "visible" : "hidden";
+
+var elmCol = document.getElementById("toggleColor");
+elmCol.style.backgroundColor = elmCol.style.backgroundColor == "blue" ? "red" : "blue";
+elmCol.style.width = elmCol.style.width == "200px" ? "100px" : "200px";
+
+var elmSel = document.getElementById("toggleFont");
+elmSel.style.fontFamily = elmSel.style.fontFamily == "verdana" ? "courier" : "verdana";
+            </pre>
+            <div id="demo_3" class="demo">
+                <br>
+                <button onclick="onDemoThreeButtonClick()">Change all the things!</button>
+                <div id="toggleVis">Now you see me!</div>
+                <br>
+                <div id="toggleColor"></div>
+                <br>
+                <span id="toggleFont">I don't know what I am</span>
+            </div>
+        </div>
+        <div class="explanation">Below are some examples of other cool pseudo-classes 
+            that CSS offers. 
+        </div>
+        <h4>:nth-child(n)</h4>
+        <div class="demo-container">
+            <pre>
+table {
+    border-collapse: collapse;
+}
+
+table th,td {
+    text-align: center;
+    border: 1px solid black;
+}
+
+table tr:nth-child(2n) {
+    background-color: lightgray;
+}
+            </pre>
+            <div id="demo_4" class="demo">
+                <br>
+                <table>
+                    <tr>
+                        <th>Col One</th>
+                        <th>Col Two</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>10</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <h4>:enabled / :disabled</h4>
+        <div class="demo-container">
+            <pre>
+
+
+input:enabled {
+    opacity: 1;
+}
+
+input:disabled {
+    opacity: .2;
+}
+            </pre>
+            <div id="demo_5" class="demo">
+                <br>
+                This checkbox will enable/disable the text field.
+                <br><br>
+                <input id="demo_5_checkbox" type="checkbox">
+                <input id="demo_5_text" type="text" placeholder="Enter some text">
+            </div>
+        </div>
+        <h4>:in-range</h4>
+        <div class="demo-container">
+            <pre>
+
+
+input[type="number"]:in-range {
+    border-color: green;
+}
+
+input[type="number"] {
+    border-color: red;
+}
+            </pre>
+            <div id="demo_6" class="demo">
+                <br>
+                Enter a number by hand greater than 10 or less than 5.
+                <br><br>
+                <input type="number" min="5" max="10" value="5">
+            </div>
+        </div>
+        <div class="explanation">A more complete list of the pseudo-classes in CSS 
+            can be found 
+            <a href="https://www.w3schools.com/css/css_pseudo_classes.asp">here</a>.
+        </div>
+        <footer></footer>
+    </body>
+</html>

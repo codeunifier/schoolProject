@@ -1,0 +1,106 @@
+.trans-demo {
+    height: 200px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.trans-demo .hover-field {
+    width: 100px;
+    border: 1px solid black;
+    margin: 5px;
+    background-color: lightgrey;
+    text-align: center;
+    display: inline-block;
+}
+
+.trans-demo .hover-field:hover {
+    cursor: default;
+    background-color: grey;
+}
+
+#demo3 .diamond {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#field11:hover ~ .diamond {
+    transform: matrix(0.866,0.5,-0.5,0.866,0,0);
+}
+
+#field12:hover ~ .diamond {
+    transform: matrix(0.866,0.6,-0.8,0.866,0,0);
+}
+
+#field13:hover ~ .diamond {
+    transform: matrix(0.586,0.8,-0.8,0.586,40,40);
+}
+
+#field14:hover ~ .diamond {
+    transform: matrix(1.25, .25, .8, .4, 0, 0);
+}
+
+#field21:hover ~ .diamond {
+    transform: translateX(300px);
+}
+
+#field22:hover ~ .diamond {
+    transform: translateY(20px);
+}
+
+#field23:hover ~ .diamond {
+    transform: translate(300px, 20px);
+}
+
+#field31:hover ~ .diamond {
+    transform: scaleX(3);
+}
+
+#field32:hover ~ .diamond {
+    transform: scaleY(.3);
+}
+
+#field33:hover ~ .diamond {
+    transform: scale(3, .3);
+}
+
+#field41:hover ~ img {
+    transition-duration: 2s;
+    transform: rotateX(180deg);
+}
+
+#field42:hover ~ img {
+    transition-duration: 2s;
+    transform: rotateY(180deg);
+}
+
+#field43:hover ~ img {
+    transition-duration: 2s;
+    transform: rotate(90deg);
+}
+
+.diamond {
+    margin-top: 50px;
+	width: 0;
+	height: 0;
+	border: 50px solid transparent;
+	border-bottom-color: red;
+	position: relative;
+	top: -50px;
+}
+.diamond:after {
+	content: '';
+	position: absolute;
+	left: -50px;
+	top: 50px;
+	width: 0;
+	height: 0;
+	border: 50px solid transparent;
+	border-top-color: red;
+}
+
+#demo4 img {
+    margin-top: 20px;
+    width: 100px;
+    height: 80px;
+    display: block;
+}
