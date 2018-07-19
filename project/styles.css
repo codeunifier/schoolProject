@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Exodar';
-    src: url('/project/fonts/exodar/Exodar-Outline.ttf')  format('truetype');
+    src: url('fonts/exodar/Exodar-Outline.ttf')  format('truetype');
 }
 
 body {
