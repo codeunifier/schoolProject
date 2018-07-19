@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SpaceA</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="ajaxRepo.js"></script>
+        <script src="scripts.js"></script>
+        <script type="text/javascript">
+            window.onload = getOnLoadFunction();
+        </script>
+        <script type="text/javascript">
+            var countdown = setInterval(function () {
+                if (document.getElementById("nxtLaunchDate")) {
+                    var launchDate = new Date(document.getElementById("nxtLaunchDate").innerText).getTime();
+
+                    var now = new Date().getTime();
+
+                    var difference = launchDate - now;
+
+                    var days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                    var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                    document.getElementById("nxtLaunchCountdown").innerHTML = days + "d " + hours + "h "
+                        + minutes + "m " + seconds + "s ";
+
+                    if (difference <= 0) {
+                        clearInterval(countdown);
+                        document.getElementById("nxtLaunchCountdown").innerHTML = "LAUNCHING";
+                    }
+                }
+            }, 1000);
+        </script>
+    </head>
+    <body>
+        <div id="contentContainer">
+            <div id="companyInfoContainer" class="white-back">
+                <div id="companyLogoContainer">
+                    <img src="spacex.png">
+                </div>
+                <div id="companyDetailsContainer">
+                    <div id="muskImageContainer">
+                        <img src="musk.jpg">
+                    </div>
+                    <div id="detailsContainer">
+                    </div>
+                </div>
+            </div>
+            <div id="historyInfoContainer" class="white-back">
+                <div id="historyTitle">Latest News</div>
+                <div id="historyList"></div>
+            </div>
+            <div id="nextLaunchContainer" class="white-back">
+                <div id="nextLaunchContents"></div>
+            </div>
+            <div id="rocketInfoContainer" class="white-back">
+                <div id="rocketHeader">Next Launch's Rocket:</div>
+                <div id="rocketButtonContainer" class="fade-in">
+                    <button id="btnRocketInfo" onclick="onRocketButtonClick()">Get info about rocket</button>
+                </div>
+                <div id="loadingMessage" class="fade-out">Loading data...</div>
+                <div id="rocketContents" class="fade-out"></div>
+            </div>
+            <div id="lastLaunchContainer" class="white-back"></div>
+            <div class="footer"></div>
+        </div>
+    </body>
+</html>
+
+<!--
+    Topics presented:
+        AJAX Consuming JSON Web Service:
+            API calls are made to SpaceX using XMLHttpRequest
+            Uses: loading launch data, rocket data, company info, and news
+        CSS Class Properties and JavaScript:
+            CSS is used and modified with JavaScript
+            Uses: everywhere in the document / modified with JS when "Get info about rocket" button is clicked
+        DOM Manipulation:
+            DOM is modified using JavaScript
+            Uses: modified with JS when "Get info about rocket" button is clicked / clicking the headers in the "Latest News" section
+        JavaScript Events:
+            JavaScript listeners for mouse events on elements and transition events
+            Uses: hovering over Elon Musk's picture / used in transition effects in the "Next Launch's Rocket" section
+        JavaScript:
+            Used for DOM manipulation, ajax requests, etc.
+            Uses: basically everywhere - contained in the scripts.js and ajaxRepo.js files
+        JavaScript Objects
+            The ajax repository is made as a JavaScript object. Other objects are used throughout the scripts.js file
+        CSS Animations and Transitions with JavaScript:
+            Animations and transitions are triggered using JavaScript
+            Uses: when "Get info about rocket" button is clicked
+        JSON Parse & Stringify
+            JSON is used in every ajax call to retrieve a json object as a string and parse it into an object
+            Uses: loading SpaceX data
+        HTML5 Tags - Video, Audio, and Canvas
+            "iframe" tag is used to display a YouTube Video
+            Uses: in the "Last Launch" section
+        CSS Transformations
+            Modifying the size of elements
+            Uses: hovering over Elon Musk's picture
+        CSS Transitions
+            Fading data in and out throughout the document
+            Uses: Text in "Next Launch" on page load / when "Get info about rocket" button is clicked / clicking headers in the "Latest News" section
+
+    Topics needed:
+        CSS Animations
+        JavaScript Animations
+        Local Storage - maybe save an email address to be alerted when the next launch is closer, and allow the user to remove it from storage
+-->
